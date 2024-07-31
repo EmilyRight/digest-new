@@ -1,0 +1,124 @@
+button {
+  background: transparent;
+  border: none;
+}
+
+//article view controls
+.controls {
+  position: fixed;
+  bottom: 7.2rem;
+  left: 7.2rem;
+  padding: 2.2rem 3.2rem;
+  background-color: #4348534e;
+  border-radius: 2.4rem;
+  backdrop-filter: blur(10px);
+  &:before {
+    @extend %ab;
+    z-index: -1;
+    pointer-events: none;
+    // background: linear-gradient(#fff0 0%, #000000 69%);
+    background-color: #fff;
+    bottom: 0;
+  }
+  //background: linear-gradient(to bottom,  rgba(0,0,0,0) 0%,rgba(0,0,0,1) 69%);
+  transform: translateY(30rem);
+  opacity: 0.5;
+  transition: 0.6s ease-in-out;
+  z-index: -5;
+  &._viewed {
+    transform: translateY(0);
+    opacity: 1;
+    z-index: 10;
+  }
+  .buttons {
+    display: flex;
+    align-items: center;
+    .btn:first-of-type {
+      transform: scale(-1, 1);
+    }
+  }
+  .btn-link {
+    color: #fff;
+    font-size: clamp(1.6rem, 2vw, 2.2rem);
+    line-height: 3.25rem;
+    font-weight: 400;
+    margin-left: 2rem;
+    background-color: #000;
+    border: 1px solid #616265;
+    padding: 0.925rem 3.65rem;
+    border-radius: 5rem;
+    transition: 0.4s;
+    user-select: none;
+    &:hover {
+      background-color: transparent;
+    }
+
+    @media (max-width: 780px) {
+      margin-left: 0rem;
+    }
+  }
+
+  .btn {
+    -webkit-tap-highlight-color: transparent;
+    margin-right: 2rem;
+    margin-bottom: 0;
+    &:hover {
+      opacity: 0.8;
+    }
+    &.btn-arrow {
+      background: hsla(0, 0%, 100%, 0.3);
+      border-radius: 50%;
+      width: 4.6rem;
+      height: 4.6rem;
+      min-width: auto;
+      padding: 0;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      //position: absolute;right:2rem;top:2rem;
+      transition: 0.3s ease-in-out;
+    }
+    &._hidden {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .controls {
+    padding: 1.6rem;
+    width: 90vw;
+    max-width: 35rem;
+    opacity: 1;
+    bottom: 1.8rem;
+    left: 50%;
+    transform: translate(-50%, 25rem);
+    &._viewed {
+      opacity: 1;
+      transform: translate(-50%, 0);
+    }
+    .buttons {
+      justify-content: space-between;
+    }
+    .btn {
+      border: 0;
+      margin: 0;
+    }
+    .btn:last-of-type {
+      order: 2;
+      margin-right: 0;
+    }
+    .text-link {
+      margin: 0;
+      order: 1;
+      background-color: #1f2229;
+      text-decoration: none;
+      font-size: 1.5rem !important;
+      font-weight: 700 !important;
+      border-radius: 6rem;
+      padding: 1.3rem 5rem;
+      max-width: 19.5rem;
+    }
+  }
+}
